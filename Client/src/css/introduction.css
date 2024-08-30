@@ -1,0 +1,31 @@
+#introduction {
+    margin: 50px 0;
+}
+#introduction .left, #introduction .right {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+#introduction .left .intro {
+    font-size: 3rem;
+    font-weight:800;
+    color: black;
+
+}
+
+#introduction .left .desc {
+    color: black;
+    text-align: justify;
+    font-weight: 500;
+
+}
+#introduction .right .myimg1 {
+    border-radius: 5%;
+    max-width: 100%;
+    height: auto;
+}
+
+
