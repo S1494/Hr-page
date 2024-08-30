@@ -2,7 +2,7 @@ import "./App.css";
 import "./index.css";
 import "./css/header.css";
 import "./css/footer.css";
-import "./css/introduction.css";
+import "./css/Introduction.css";
 import "./css/aboutme.css";
 import "./css/getresume.css";
 import "./css/signup.css";
