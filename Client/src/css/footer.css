@@ -56,3 +56,14 @@ font-size: 1.7rem;
 color: rgb(53, 50, 50);
 font-weight: 600;
 }
+
+@media (max-width: 768px) {
+    #footer .footer-list {
+        margin-top: 20px;
+    }
+    #footer .footer-social {
+        margin-top: 20px;
+    }
+
+
+}
