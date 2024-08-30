@@ -2,6 +2,7 @@ import express from "express";
 import User from "../module/userSchema.js";
 import upload from "../config/multer.js";
 import bcrypt from "bcryptjs";
+import { v2 as cloudinary } from "cloudinary";
 const homeRouter = express.Router();
 
 homeRouter.get("/", (req, res) => {
@@ -74,9 +75,14 @@ homeRouter.post("/signup", upload.single("resume"), async (req, res) => {
 
     await nuser.save();
 
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: "resumes",
+    });
+
     res.status(200).json({
       status: 200,
       message: "You have successfully Submitted your resume",
+      url: result,
       data: nuser,
     });
   } catch (error) {

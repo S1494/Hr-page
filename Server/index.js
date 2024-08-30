@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
+    // origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
