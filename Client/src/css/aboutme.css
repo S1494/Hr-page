@@ -1,0 +1,36 @@
+#aboutme {
+    margin: 50px 0;
+}
+
+#aboutme .left, #aboutme .right {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#aboutme .left .myimg2 {
+    border-radius: 5%;
+    max-width: 100%;
+    height: auto;
+
+}
+
+#aboutme .heading {
+    font-size: 4rem;
+    font-weight: 800;
+    color: black;
+    
+}
+
+#aboutme .desc {
+    color: black;
+    
+}
+
+#aboutme .right .input-range{
+    margin-bottom: 10px;
+    background: #FA6D20
+}
+

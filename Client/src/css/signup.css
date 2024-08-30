@@ -1,0 +1,40 @@
+#signup h3 {
+    text-align: center;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 30px;
+}
+#signup .message {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#signup .formbox{
+    margin-top: 10vh;
+}
+
+#signup .form-group {
+    margin-top: 15px;
+}
+
+
+#signup .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+#signup .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  #signup .submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

@@ -1,0 +1,39 @@
+#getresume {
+margin: 50px 0;
+height: 300px;
+}
+
+#getresume .getresume {
+    height: 200px;
+
+}
+
+#getresume .intro {
+    text-align: center;
+    
+}
+
+#getresume .intro .heading {
+    font-size: 4rem;
+    font-weight: 800;
+    
+}
+#getresume .intro .desc {
+    font-size: 1.5rem;
+    
+}
+#getresume .btn-box {
+    text-align: center;
+    margin-top: 50px;
+    
+}
+#getresume  .resume-btn {
+    background-color: #FA6D20;
+    color: white;
+    font-size: 2rem;
+}
+
+#getresume  .resume-btn:hover {
+    background-color: #c56029;
+    font-size: 2rem;
+}
