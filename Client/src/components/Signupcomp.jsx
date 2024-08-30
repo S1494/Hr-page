@@ -20,11 +20,11 @@ const Signupcomp = () => {
 
   const clearInputs = () => {
     SetFormData({
-      firstname: "",
-      lastname: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
-      confirmpassword: "",
+      confirmPassword: "",
       resume: null,
     });
     resumeInputRef.current.value = "";
