@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 const Api_URL = import.meta.env.VITE_SERVER_URL;
 
 const Signup = () => {
@@ -123,6 +124,9 @@ const Signup = () => {
 
                   <input type="submit" value="Submit" className="submit" />
                 </form>
+                <p className="gotohome">
+                  <Link to="/">Go to Home Page</Link>
+                </p>
               </div>
             </div>
             <div className="col-md-4"></div>
