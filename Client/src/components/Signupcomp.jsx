@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 const Api_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -14,6 +14,20 @@ const Signupcomp = () => {
 
   const handleFileChange = (e) => {
     SetFormData({ ...formData, resume: e.target.files[0] });
+  };
+
+  const resumeInputRef = useRef(null);
+
+  const clearInputs = () => {
+    SetFormData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      confirmpassword: "",
+      resume: null,
+    });
+    resumeInputRef.current.value = "";
   };
 
   const submitForm = async (e) => {
@@ -114,6 +128,7 @@ const Signupcomp = () => {
                   <div className="form-group">
                     <label htmlFor="resume">Upload Resume:</label>
                     <input
+                      ref={resumeInputRef}
                       type="file"
                       id="resume"
                       name="resume"
