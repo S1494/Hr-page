@@ -3,6 +3,7 @@ import User from "../module/userSchema.js";
 import upload from "../config/multer.js";
 import bcrypt from "bcryptjs";
 import { v2 as cloudinary } from "cloudinary";
+import streamifier from "streamifier";
 const homeRouter = express.Router();
 
 homeRouter.get("/", (req, res) => {
@@ -16,7 +17,7 @@ homeRouter.get("/signup", (req, res) => {
 homeRouter.post("/signup", upload.single("resume"), async (req, res) => {
   const { firstname, lastname, email, confirmpassword } = req.body;
   let { password } = req.body;
-  const resume = req.file.filename;
+  let resume;
   const bcryptSalt = 10;
 
   try {
@@ -65,28 +66,39 @@ homeRouter.post("/signup", upload.single("resume"), async (req, res) => {
       password = await bcrypt.hash(password, bcryptSalt);
     }
 
-    const nuser = new User({
-      firstname,
-      lastname,
-      email,
-      password,
-      resume,
-    });
+    // const result = await cloudinary.uploader.upload(req.file.path, {
+    //   folder: "resumes",
+    // });
 
-    await nuser.save();
+    let stream = cloudinary.uploader.upload_stream(
+      {
+        folder: "resume",
+      },
+      async (error, result) => {
+        if (error) {
+          return res.status(500).json({ message: "Failed to upload image" });
+        }
+        const nuser = new User({
+          firstname,
+          lastname,
+          email,
+          password,
+          resume: result.public_id,
+        });
 
-    const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: "resumes",
-    });
+        await nuser.save();
+        res.status(200).json({
+          status: 200,
+          message: "You have successfully Submitted your resume",
+          data: nuser,
+        });
+      }
+    );
 
-    res.status(200).json({
-      status: 200,
-      message: "You have successfully Submitted your resume",
-      url: result,
-      data: nuser,
-    });
+    streamifier.createReadStream(req.file.buffer).pipe(stream);
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
+    return res.status(500).json({ message: error });
   }
 });
 

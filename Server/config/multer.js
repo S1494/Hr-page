@@ -18,6 +18,6 @@ cloudinary.config({
 // });
 
 // const upload = multer({ storage: storage });
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ storage: multer.memoryStorage() });
 
 export default upload;
