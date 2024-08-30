@@ -60,7 +60,7 @@ const Signupcomp = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4"></div>
-            <div className="col-md-4">
+            <div className="col-md-4 signupbox">
               <div className="formbox">
                 <h3>SUBMIT YOUR RESUME</h3>
                 <p className="message">{message}</p>
